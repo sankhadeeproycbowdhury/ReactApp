@@ -1,38 +1,41 @@
-import React,{useState}  from 'react'
+import React  from 'react'
 
 
-export default function About() {
+export default function About(props) {
 
-const [myStyle, setMyStyle] = useState({
-    backgroundColor : 'black',
-    color : 'white',
-    border : '1px solid white'
-});
+// const [myStyle, setMyStyle] = useState({
+//     backgroundColor : 'black',
+//     color : 'white',
+//     border : '1px solid white'
+// });
 
-const [btnText, setBtnText] = useState("LightkMode");
+// const [btnText, setBtnText] = useState("LightkMode");
 
-const toggleStyle = ()=>{
-    if(myStyle.color === 'black'){
-    setMyStyle({
-    backgroundColor : 'black',
-    color : 'white',
-    border : '1px solid white'})
-    setBtnText('LigthMode')
-    }
-    else{
-    setMyStyle({
-    backgroundColor : 'white',
-    color : 'black'})
-    setBtnText('DarkMode')
-    }
+// const toggleStyle = ()=>{
+//     if(myStyle.color === 'black'){
+//     setMyStyle({
+//     backgroundColor : 'black',
+//     color : 'white',
+//     border : '1px solid white'})
+//     setBtnText('LigthMode')
+//     }
+//     else{
+//     setMyStyle({
+//     backgroundColor : 'white',
+//     color : 'black'})
+//     setBtnText('DarkMode')
+//     }
+// }
+
+let myStyle = {
+    backgroundColor : props.mode === 'dark'?'rgb(36 74 104)':'white',
+    color : props.mode === 'dark'?'white':'black',
+    border : '1px solid'+ props.mode === 'dark'?'white':'black',
 }
 
-
-
-
 return (
-<div className='container' style={myStyle}>
-    <h1 className='my-3'>About Us</h1>
+<div className='container'>
+    <h1 className='my-3' style={{color : props.mode === 'dark'?'white':'black'}}>About Us</h1>
     <div className="accordion" id="accordionExample">
       <div className="accordion-item">
         <h2 className="accordion-header">
@@ -107,7 +110,7 @@ return (
         </div>
       </div>
     </div>
-    <button type="button" className="btn btn-primary my-3" onClick={toggleStyle}>{btnText}</button>
+   
 
 </div>
       

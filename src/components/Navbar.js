@@ -20,14 +20,14 @@ export default function Navbar(props) {
                             <Link className="nav-link" to="/about">{props.aboutText}</Link>
                         </li>
                         <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Projects
-                            </Link>
+                            </a>
                             <ul className="dropdown-menu">
-                                <li><Link className="dropdown-item" to="/">Action</Link></li>
-                                <li><Link className="dropdown-item" to="/">Another action</Link></li>
+                                <li><a className="dropdown-item" href="/">Action</a></li>
+                                <li><a className="dropdown-item" href="/">Another action</a></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><Link className="dropdown-item" to="/">Something else here</Link></li>
+                                <li><a className="dropdown-item" href="/">Something else here</a></li>
                             </ul>
                         </li>
                     </ul>
