@@ -25,8 +25,13 @@ export default function TextForm(props) {
   }
 
   const countWord = (text)=>{
-    let textContainer = text.split(" ").filter(item => item !=='');
+    let textContainer = text.split(/\s+/).filter(item => item !=='');
     return textContainer.length;
+  }
+
+  const handleCopy = ()=>{
+    navigator.clipboard.writeText(text);
+    props.showAlert("Copied to ClipBoard!", "success");
   }
 
   return (
@@ -38,6 +43,7 @@ export default function TextForm(props) {
         </div>
         <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUpClick} >Convert UpperCase</button>
         <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLoClick} >Convert LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleCopy} >Copy to Clipboard</button>
         <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handlClear} >Clear Text</button>
       </div>
 
